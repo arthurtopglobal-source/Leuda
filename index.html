@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Leuda Ozonteck - Consultoria e Suplementação Premium. Tecnologia de ponta para a sua saúde e vitalidade." />
+  <title>Leuda Ozonteck • Suplementação Premium</title>
+
+  <!-- Fontes Premium e Altamente Legíveis -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      background: var(--bg-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── DESIGN TOKENS (Paleta Light Premium) ──────────────────────── */
+    :root {
+      --bg-white:   #ffffff;
+      --bg-cream:   #fcfcf9; /* Bege super suave para intercalar seções */
+      --bg-gray:    #f5f7f9;
+      --gold-main:  #c59b27; /* Dourado escurecido para contraste no fundo claro */
+      --gold-light: #dfb951;
+      --wpp:        #25D366;
+      --wpp-dark:   #128C7E;
+      --text-dark:  #111827; /* Quase preto para títulos */
+      --text-main:  #374151; /* Cinza escuro para textos */
+      --text-muted: #6b7280;
+      --radius:     16px;
+      --shadow-sm:  0 4px 15px rgba(0,0,0,0.03);
+      --shadow-md:  0 10px 40px rgba(0,0,0,0.06);
+      --border-subtle: rgba(0,0,0,0.06);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* ─── TYPOGRAPHY ────────────────────────────────────────────────── */
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; color: var(--text-dark); }
+    .eyebrow {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold-main); margin-bottom: 12px; display: block;
+    }
+
+    /* ─── NAVEGAÇÃO ─────────────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 15px 5vw; display: flex; align-items: center; justify-content: space-between;
+      transition: var(--transition); background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-subtle);
+    }
+    #nav.scrolled {
+      box-shadow: var(--shadow-sm); padding: 12px 5vw;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-dark); }
+    .logo-mark {
+      width: 40px; height: 40px; background: linear-gradient(135deg, var(--gold-light), var(--gold-main));
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #fff;
+    }
+    .logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; }
+    .logo span em { font-style: italic; color: var(--gold-main); }
+    
+    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+    .nav-links a:hover { color: var(--gold-main); }
+    
+    .btn-nav {
+      background: var(--text-dark); color: #fff !important; padding: 10px 24px;
+      border-radius: 50px; font-weight: 600 !important; font-size: 0.85rem !important; letter-spacing: 1px;
+    }
+    .btn-nav:hover { background: var(--gold-main); color: #fff !important; transform: translateY(-2px); }
+
+    /* ─── HERO SECTION ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 90vh; display: flex; align-items: center; justify-content: center;
+      padding: 120px 5vw 60px; text-align: center; position: relative; overflow: hidden;
+      background: radial-gradient(circle at top, var(--bg-white) 0%, var(--bg-gray) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .hero-title { font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 24px; }
+    .hero-title strong { font-weight: 700; color: var(--gold-main); font-style: italic; }
+    .hero-desc { font-size: 1.25rem; color: var(--text-main); line-height: 1.6; margin-bottom: 40px; font-weight: 300; }
+    
+    .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px; background: var(--text-dark);
+      color: #fff; padding: 18px 36px; border-radius: 50px; font-size: 1.1rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: var(--transition);
+    }
+    .btn-primary:hover { transform: translateY(-3px); background: var(--gold-main); box-shadow: 0 15px 40px rgba(197, 155, 39, 0.3); }
+
+    /* ─── VALOR: A TECNOLOGIA OZONTECK ──────────────────────────────── */
+    #tecnologia { padding: 100px 5vw; background: var(--bg-white); }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; }
+    .tech-text h2 { font-size: 3rem; margin-bottom: 20px; }
+    .tech-text p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
+    
+    .tech-features { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+    .feature-item { display: flex; align-items: center; gap: 15px; font-size: 1.05rem; font-weight: 500; color: var(--text-dark); }
+    .feature-icon { color: var(--gold-main); font-size: 1.5rem; }
+    
+    .tech-visual {
+      background: var(--bg-cream); border: 1px solid var(--border-subtle);
+      padding: 50px; border-radius: 24px; text-align: center; position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .tech-visual h3 { color: var(--gold-main); font-size: 2rem; margin-bottom: 10px; }
+
+    /* ─── CATÁLOGO DE PRODUTOS PREMIUM ──────────────────────────────── */
+    #produtos { padding: 100px 5vw; background: var(--bg-gray); position: relative; }
+    .section-header { text-align: center; margin-bottom: 70px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .section-title { font-size: 3.5rem; margin-bottom: 20px; }
+    .section-desc { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
+    
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .prod-card {
+      background: var(--bg-white); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); padding: 30px 20px; text-align: center;
+      transition: var(--transition); display: flex; flex-direction: column; position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .prod-card:hover {
+      transform: translateY(-10px); border-color: rgba(197, 155, 39, 0.3);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .prod-tag {
+      position: absolute; top: 15px; right: 15px; background: var(--gold-main); color: #fff;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      padding: 6px 12px; border-radius: 50px; z-index: 2;
+    }
+    
+    .prod-img {
+      width: 100%; aspect-ratio: 1; background: transparent;
+      margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 10px;
+    }
+    
+    .prod-img img {
+      width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s ease;
+    }
+    .prod-card:hover .prod-img img { transform: scale(1.05); }
+    
+    .prod-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+    .prod-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 30px; flex-grow: 1; font-weight: 400; }
+    
+    .btn-buy {
+      background: transparent; color: var(--wpp-dark); text-decoration: none; padding: 14px;
+      border-radius: 50px; font-weight: 600; font-size: 1rem; border: 1px solid var(--wpp);
+      transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-buy:hover { background: var(--wpp); border-color: var(--wpp); color: white; }
+
+    /* ─── O DIFERENCIAL DA LEUDA ────────────────────────────────────── */
+    #consultoria { padding: 100px 5vw; background: var(--bg-white); }
+    .cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; }
+    .cons-visual { position: relative; }
+    .cons-img-box {
+      aspect-ratio: 3/4; background: var(--bg-cream);
+      border: 1px solid var(--border-subtle); border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;
+    }
+    .cons-img-box h3 { font-size: 2.2rem; color: var(--gold-main); text-align: center; }
+    .cons-texto h2 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
+    .cons-texto p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
+    .cons-pontos { margin-top: 30px; border-left: 2px solid var(--gold-main); padding-left: 20px; }
+    .cons-ponto { margin-bottom: 20px; }
+    .cons-ponto h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 600;}
+    .cons-ponto p { font-size: 0.95rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* ─── DEPOIMENTOS & PROVA SOCIAL ────────────────────────────────── */
+    #depoimentos { padding: 100px 5vw; background: var(--bg-cream); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);}
+    .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .dep-card {
+      background: var(--bg-white); border: 1px solid var(--border-subtle); padding: 40px 30px;
+      border-radius: var(--radius); position: relative; transition: var(--transition); box-shadow: var(--shadow-sm);
+    }
+    .dep-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .dep-aspas { font-family: 'Cormorant Garamond'; font-size: 4rem; color: rgba(197, 155, 39, 0.15); line-height: 0; position: absolute; top: 40px; left: 20px; }
+    .dep-stars { color: var(--gold-main); letter-spacing: 2px; margin-bottom: 15px; font-size: 1.1rem; position: relative; z-index: 1;}
+    .dep-texto { font-size: 1.05rem; color: var(--text-main); line-height: 1.7; font-style: italic; margin-bottom: 25px; font-weight: 400; position: relative; z-index: 1;}
+    .dep-autor { font-weight: 600; color: var(--text-dark); font-size: 1rem; }
+    .dep-autor span { display: block; font-size: 0.8rem; color: var(--gold-main); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;}
+
+    /* ─── FAQ ───────────────────────────────────────────────────────── */
+    #faq { padding: 100px 5vw; background: var(--bg-white); }
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border-subtle); padding: 25px 0; cursor: pointer; }
+    .faq-pergunta { display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem; font-weight: 600; color: var(--text-dark); }
+    .faq-pergunta span { color: var(--gold-main); font-size: 1.5rem; transition: var(--transition); }
+    .faq-resposta { max-height: 0; overflow: hidden; transition: var(--transition); color: var(--text-muted); font-size: 1rem; line-height: 1.7; font-weight: 400; }
+    .faq-item.active .faq-resposta { max-height: 200px; margin-top: 15px; }
+    .faq-item.active .faq-pergunta span { transform: rotate(45deg); }
+
+    /* ─── FOOTER ────────────────────────────────────────────────────── */
+    footer { background: var(--text-dark); padding: 60px 5vw 30px; text-align: center; }
+    .footer-logo { font-family: 'Cormorant Garamond'; font-size: 2.5rem; color: #fff; margin-bottom: 15px; }
+    .footer-logo span { color: var(--gold-light); font-style: italic; }
+    .footer-text { color: #9ca3af; font-size: 1rem; max-width: 500px; margin: 0 auto 30px; font-weight: 300; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.85rem; color: #6b7280; }
+
+    /* ─── WHATSAPP FLOAT ────────────────────────────────────────────── */
+    .float-wpp {
+      position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+      background: linear-gradient(135deg, var(--wpp), var(--wpp-dark)); color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 2rem;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); text-decoration: none; z-index: 1000;
+      transition: var(--transition); animation: pulse-wpp 2s infinite;
+    }
+    .float-wpp:hover { transform: scale(1.1); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6); }
+    @keyframes pulse-wpp {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* ─── ANIMAÇÕES REVEAL ──────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVO ────────────────────────────────────────────────── */
+    @media (max-width: 992px) {
+      .tech-grid, .cons-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .tech-features { align-items: center; }
+      .cons-pontos { border-left: none; padding-left: 0; }
+      .cons-img-box { padding: 60px 0; }
+      .dep-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-actions { flex-direction: column; }
+      .section-title { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <nav id="nav">
+    <a href="#hero" class="logo">
+      <div class="logo-mark">L</div>
+      <span>Leuda<em>Ozonteck</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#tecnologia">A Tecnologia</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#consultoria">Consultoria</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#produtos" class="btn-nav">Fazer Pedido</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="hero-content reveal active">
+      <span class="eyebrow">Padrão Ouro em Suplementação</span>
+      <h1 class="hero-title">O ápice da sua saúde, formulado com <strong>tecnologia de ponta.</strong></h1>
+      <p class="hero-desc">Não é apenas um suplemento. É a combinação exata de pureza, alta absorção e ciência avançada para transformar sua imunidade, energia e longevidade.</p>
+      
+      <div class="hero-actions">
+        <a href="#produtos" class="btn-primary">Acessar Catálogo Premium</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE É PREMIUM? (TECNOLOGIA) -->
+  <section id="tecnologia">
+    <div class="tech-grid">
+      <div class="tech-text reveal">
+        <span class="eyebrow">Por que nosso valor é diferente?</span>
+        <h2>A Ciência por trás da Pureza</h2>
+        <p>A maioria dos suplementos do mercado possui baixa taxa de absorção, o que significa que seu corpo descarta a maior parte dos nutrientes. A linha Ozonteck que eu represento utiliza tecnologia de ponta para garantir que cada miligrama chegue exatamente onde suas células precisam.</p>
+        
+        <div class="tech-features">
+          <div class="feature-item">
+            <span class="feature-icon">✦</span>
+            <span>Matéria-prima de altíssima pureza e certificada.</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✦</span>
+            <span>Alta biodisponibilidade (absorção rápida pelo organismo).</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✦</span>
+            <span>Fórmulas exclusivas focadas em resultados reais e perceptíveis.</span>
+          </div>
+        </div>
+      </div>
+      <div class="tech-visual reveal delay-1">
+        <h3>Qualidade Premium</h3>
+        <p style="color:var(--text-muted); margin-top:10px;">Aprovado pelos mais rigorosos testes de qualidade do Brasil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE PRODUTOS COM IMAGENS REAIS -->
+  <section id="produtos">
+    <div class="section-header reveal">
+      <span class="eyebrow">Linha de Suplementação</span>
+      <h2 class="section-title">O Catálogo <em>Ozonteck</em></h2>
+      <p class="section-desc">Selecione o produto ideal para a sua necessidade. Ao clicar em comprar, você será direcionado para o meu WhatsApp particular, onde farei o seu atendimento de forma exclusiva.</p>
+    </div>
+
+    <div class="prod-grid">
+      <!-- Produto 1: XBOOSTER -->
+      <div class="prod-card reveal">
+        <span class="prod-tag">Energia & Foco</span>
+        <div class="prod-img">
+          <img src="https://i.imgur.com/TgJNxrE.png" alt="XBOOSTER Ozonteck">
+        </div>
+        <h3 class="prod-title">XBOOSTER</h3>
+        <p class="prod-desc">Fórmula de alta performance com Arginina, Taurina e Cafeína. Desenvolvido para erradicar a fadiga, aumentar a clareza mental e fornecer energia limpa e duradoura para o seu dia.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20solicitar%20o%20XBOOSTER." class="btn-buy" target="_blank">
+          Fazer Pedido via WhatsApp →
+        </a>
+      </div>
+
+      <!-- Produto 2: NXCAP OZON -->
+      <div class="prod-card reveal delay-1">
+        <span class="prod-tag">Antioxidação Ouro</span>
+        <div class="prod-img">
+          <img src="https://i.imgur.com/8PCCrCj.png" alt="NXCAP OZON Ozonteck">
+        </div>
+        <h3 class="prod-title">NXCAP OZON</h3>
+        <p class="prod-desc">Um blend exclusivo de óleos com Vitamina E pura. Atua como um escudo celular avançado, combatendo o estresse oxidativo e promovendo a longevidade e beleza de dentro para fora.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20solicitar%20o%20NXCAP%20OZON." class="btn-buy" target="_blank">
+          Fazer Pedido via WhatsApp →
+        </a>
+      </div>
+
+      <!-- Produto 3: ÔMEGA 3 -->
+      <div class="prod-card reveal delay-2">
+        <span class="prod-tag">Saúde Cardiovascular</span>
+        <div class="prod-img">
+          <img src="https://i.imgur.com/ja8y2Pc.png" alt="ÔMEGA 3 Ozonteck">
+        </div>
+        <h3 class="prod-title">ÔMEGA 3 PREMIUM</h3>
+        <p class="prod-desc">Óleo de peixe super concentrado e livre de metais pesados. Rico em EPA e DHA, é essencial para a saúde do coração, memória impecável e regulação dos níveis de colesterol.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20solicitar%20o%20ÔMEGA%203." class="btn-buy" target="_blank">
+          Fazer Pedido via WhatsApp →
+        </a>
+      </div>
+
+      <!-- Produto 4: TRI MAGNÉSIO -->
+      <div class="prod-card reveal delay-3">
+        <span class="prod-tag">Imunidade & Estrutura</span>
+        <div class="prod-img">
+          <img src="https://i.imgur.com/U48IpFh.png" alt="TRI MAGNÉSIO Ozonteck">
+        </div>
+        <h3 class="prod-title">TRI MAGNÉSIO</h3>
+        <p class="prod-desc">Sinergia absoluta de 3 formas de Magnésio combinadas ao poder anti-inflamatório da Cúrcuma. Fundamental para o relaxamento muscular, saúde óssea e sistema imunológico blindado.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20solicitar%20o%20TRI%20MAGNÉSIO." class="btn-buy" target="_blank">
+          Fazer Pedido via WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O DIFERENCIAL (O VALOR DA LEUDA) -->
+  <section id="consultoria">
+    <div class="cons-grid">
+      <div class="cons-visual reveal">
+        <div class="cons-img-box">
+          <h3>Leuda Ozonteck<br><span style="font-size:1rem; color:var(--text-main); font-weight:400; font-family:'Plus Jakarta Sans', sans-serif;">Consultoria Oficial</span></h3>
+        </div>
+      </div>
+      <div class="cons-texto reveal delay-1">
+        <span class="eyebrow">A Experiência do Cliente</span>
+        <h2>Você não está comprando apenas um frasco.</h2>
+        <p>A diferença entre gastar com suplementos que não funcionam e investir na sua saúde está no <strong>acompanhamento</strong>. Eu, Leuda, não delego o meu atendimento.</p>
+        
+        <div class="cons-pontos">
+          <div class="cons-ponto">
+            <h4>Consultoria Individual</h4>
+            <p>Antes de finalizar a venda, eu converso com você para entender a sua dor e garantir que está levando o produto certo.</p>
+          </div>
+          <div class="cons-ponto">
+            <h4>Produtos 100% Originais</h4>
+            <p>Comprando comigo, você tem a segurança e a garantia de fábrica de estar recebendo a fórmula original e lacrada da Ozonteck.</p>
+          </div>
+          <div class="cons-ponto">
+            <h4>Acompanhamento Pós-Venda</h4>
+            <p>Eu envio orientações exatas de como e quando tomar seu produto para garantir a máxima absorção e resultado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (PROVA SOCIAL PARA JUSTIFICAR VALOR) -->
+  <section id="depoimentos">
+    <div class="section-header reveal" style="margin-bottom:50px;">
+      <span class="eyebrow">Prova Social</span>
+      <h2 class="section-title">Resultados <em>Reais</em></h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <span class="dep-aspas">"</span>
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-texto">Eu tomava vitaminas de farmácia e não sentia nada. Com o Tri Magnésio da Ozonteck, minhas dores no corpo sumiram em 15 dias. O atendimento da Leuda é um espetáculo à parte.</p>
+        <div class="dep-autor">Cláudia M. <span>Cliente Vip</span></div>
+      </div>
+      <div class="dep-card reveal delay-1">
+        <span class="dep-aspas">"</span>
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-texto">Vale cada centavo. O Xbooster me deu a energia que eu precisava para trabalhar e treinar sem aquele cansaço no fim do dia. Qualidade indiscutível.</p>
+        <div class="dep-autor">Ricardo V. <span>Cliente Vip</span></div>
+      </div>
+      <div class="dep-card reveal delay-2">
+        <span class="dep-aspas">"</span>
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-texto">A segurança de comprar com a Leuda faz toda diferença. O Ômega 3 não tem retrogosto e os meus exames de colesterol melhoraram muito.</p>
+        <div class="dep-autor">Sônia A. <span>Cliente Vip</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (QUEBRANDO OBJEÇÕES) -->
+  <section id="faq">
+    <div class="section-header reveal" style="margin-bottom:40px;">
+      <span class="eyebrow">Dúvidas Frequentes</span>
+      <h2 class="section-title">Perguntas <em>Respondidas</em></h2>
+    </div>
+    <div class="faq-container reveal delay-1">
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-pergunta">Os produtos são autorizados pela Anvisa? <span>+</span></div>
+        <div class="faq-resposta">Absolutamente. Todos os suplementos do Grupo Ozonteck passam por rigorosos testes de qualidade e são produzidos em conformidade com as normas da Anvisa, garantindo segurança total para o seu consumo.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-pergunta">Como funciona o pagamento? É seguro? <span>+</span></div>
+        <div class="faq-resposta">100% seguro. O pagamento é alinhado diretamente comigo pelo WhatsApp. Forneço links seguros e dados bancários oficiais para que você tenha total tranquilidade na transação.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-pergunta">Por que o valor é superior aos de farmácia comum? <span>+</span></div>
+        <div class="faq-resposta">Suplementos de prateleira comum geralmente usam matérias-primas baratas com baixíssima absorção pelo corpo. A Ozonteck utiliza tecnologia premium de biodisponibilidade. Você paga por resultados reais que chegam nas suas células, e não por cápsulas que são descartadas pelo organismo.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-pergunta">Como é feito o envio? <span>+</span></div>
+        <div class="faq-resposta">Assim que o pedido é confirmado, organizamos a logística mais rápida para o seu CEP. Envio o código de rastreio e acompanho junto com você até a encomenda chegar em suas mãos.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Leuda<span>Ozonteck</span></div>
+    <p class="footer-text">Consultoria Especializada em Saúde e Longevidade. Transformando vidas com tecnologia, pureza e atendimento de excelência.</p>
+    <div class="footer-bottom">
+      &copy; 2024 Leuda Ozonteck Consultoria Premium. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Acessei%20seu%20site%20e%20gostaria%20de%20um%20atendimento." class="float-wpp" target="_blank" aria-label="Atendimento Vip">
+    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+  </a>
+
+  <!-- SCRIPT DE ANIMAÇÃO E SCROLL -->
+  <script>
+    // Muda a cor do Menu ao rolar a página
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Animação de Reveal (Surgir ao rolar)
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Chama uma vez para exibir elementos que já estão na tela
+  </script>
+</body>
+</html>
