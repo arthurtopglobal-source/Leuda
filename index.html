@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ESTA É A TAG QUE FAZ O SITE SE AJUSTAR EM CELULARES -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="Leuda Ozonteck - Consultoria e Suplementação Premium. Tecnologia de ponta para a sua saúde e vitalidade." />
   <title>Leuda Ozonteck • Suplementação Premium</title>
 
@@ -26,14 +27,14 @@
     /* ─── DESIGN TOKENS (Paleta Light Premium) ──────────────────────── */
     :root {
       --bg-white:   #ffffff;
-      --bg-cream:   #fcfcf9; /* Bege super suave para intercalar seções */
+      --bg-cream:   #fcfcf9;
       --bg-gray:    #f5f7f9;
-      --gold-main:  #c59b27; /* Dourado escurecido para contraste no fundo claro */
+      --gold-main:  #c59b27;
       --gold-light: #dfb951;
       --wpp:        #25D366;
       --wpp-dark:   #128C7E;
-      --text-dark:  #111827; /* Quase preto para títulos */
-      --text-main:  #374151; /* Cinza escuro para textos */
+      --text-dark:  #111827;
+      --text-main:  #374151;
       --text-muted: #6b7280;
       --radius:     16px;
       --shadow-sm:  0 4px 15px rgba(0,0,0,0.03);
@@ -56,10 +57,9 @@
       transition: var(--transition); background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-subtle);
     }
-    #nav.scrolled {
-      box-shadow: var(--shadow-sm); padding: 12px 5vw;
-    }
-    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-dark); }
+    #nav.scrolled { box-shadow: var(--shadow-sm); padding: 12px 5vw; }
+    
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-dark); z-index: 1001; }
     .logo-mark {
       width: 40px; height: 40px; background: linear-gradient(135deg, var(--gold-light), var(--gold-main));
       border-radius: 8px; display: flex; align-items: center; justify-content: center;
@@ -68,7 +68,7 @@
     .logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; }
     .logo span em { font-style: italic; color: var(--gold-main); }
     
-    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; margin: 0; padding: 0; }
     .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
     .nav-links a:hover { color: var(--gold-main); }
     
@@ -78,6 +78,13 @@
     }
     .btn-nav:hover { background: var(--gold-main); color: #fff !important; transform: translateY(-2px); }
 
+    /* MENU HAMBÚRGUER (MOBILE) */
+    .hamburger { display: none; cursor: pointer; z-index: 1001; }
+    .hamburger span {
+      display: block; width: 25px; height: 3px; margin: 5px auto;
+      background-color: var(--text-dark); transition: var(--transition); border-radius: 3px;
+    }
+
     /* ─── HERO SECTION ──────────────────────────────────────────────── */
     #hero {
       min-height: 90vh; display: flex; align-items: center; justify-content: center;
@@ -85,42 +92,42 @@
       background: radial-gradient(circle at top, var(--bg-white) 0%, var(--bg-gray) 100%);
     }
     .hero-content { position: relative; z-index: 1; max-width: 900px; }
-    .hero-title { font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 24px; }
+    .hero-title { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 24px; }
     .hero-title strong { font-weight: 700; color: var(--gold-main); font-style: italic; }
-    .hero-desc { font-size: 1.25rem; color: var(--text-main); line-height: 1.6; margin-bottom: 40px; font-weight: 300; }
+    .hero-desc { font-size: 1.15rem; color: var(--text-main); line-height: 1.6; margin-bottom: 40px; font-weight: 300; }
     
     .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px; background: var(--text-dark);
+      display: inline-flex; align-items: center; gap: 10px; justify-content: center; background: var(--text-dark);
       color: #fff; padding: 18px 36px; border-radius: 50px; font-size: 1.1rem; font-weight: 600;
-      text-decoration: none; letter-spacing: 1px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: var(--transition);
+      text-decoration: none; letter-spacing: 1px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: var(--transition);
     }
     .btn-primary:hover { transform: translateY(-3px); background: var(--gold-main); box-shadow: 0 15px 40px rgba(197, 155, 39, 0.3); }
 
+    /* ─── ESTILOS GERAIS DE SEÇÃO ───────────────────────────────────── */
+    section { padding: 100px 5vw; }
+    .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+    .section-desc { font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
+
     /* ─── VALOR: A TECNOLOGIA OZONTECK ──────────────────────────────── */
-    #tecnologia { padding: 100px 5vw; background: var(--bg-white); }
-    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; }
-    .tech-text h2 { font-size: 3rem; margin-bottom: 20px; }
+    #tecnologia { background: var(--bg-white); }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
     .tech-text p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
     
     .tech-features { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
     .feature-item { display: flex; align-items: center; gap: 15px; font-size: 1.05rem; font-weight: 500; color: var(--text-dark); }
-    .feature-icon { color: var(--gold-main); font-size: 1.5rem; }
+    .feature-icon { color: var(--gold-main); font-size: 1.5rem; flex-shrink: 0; }
     
     .tech-visual {
       background: var(--bg-cream); border: 1px solid var(--border-subtle);
-      padding: 50px; border-radius: 24px; text-align: center; position: relative;
+      padding: 50px 30px; border-radius: 24px; text-align: center; position: relative;
       box-shadow: var(--shadow-sm);
     }
     .tech-visual h3 { color: var(--gold-main); font-size: 2rem; margin-bottom: 10px; }
 
     /* ─── CATÁLOGO DE PRODUTOS PREMIUM ──────────────────────────────── */
-    #produtos { padding: 100px 5vw; background: var(--bg-gray); position: relative; }
-    .section-header { text-align: center; margin-bottom: 70px; max-width: 800px; margin-left: auto; margin-right: auto; }
-    .section-title { font-size: 3.5rem; margin-bottom: 20px; }
-    .section-desc { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
-    
+    #produtos { background: var(--bg-gray); position: relative; }
     .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
     .prod-card {
       background: var(--bg-white); border: 1px solid var(--border-subtle);
@@ -128,10 +135,7 @@
       transition: var(--transition); display: flex; flex-direction: column; position: relative;
       box-shadow: var(--shadow-sm);
     }
-    .prod-card:hover {
-      transform: translateY(-10px); border-color: rgba(197, 155, 39, 0.3);
-      box-shadow: var(--shadow-md);
-    }
+    .prod-card:hover { transform: translateY(-10px); border-color: rgba(197, 155, 39, 0.3); box-shadow: var(--shadow-md); }
     
     .prod-tag {
       position: absolute; top: 15px; right: 15px; background: var(--gold-main); color: #fff;
@@ -139,15 +143,8 @@
       padding: 6px 12px; border-radius: 50px; z-index: 2;
     }
     
-    .prod-img {
-      width: 100%; aspect-ratio: 1; background: transparent;
-      margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
-      position: relative; padding: 10px;
-    }
-    
-    .prod-img img {
-      width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s ease;
-    }
+    .prod-img { width: 100%; aspect-ratio: 1; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; position: relative; padding: 10px; }
+    .prod-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s ease; }
     .prod-card:hover .prod-img img { transform: scale(1.05); }
     
     .prod-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
@@ -156,29 +153,27 @@
     .btn-buy {
       background: transparent; color: var(--wpp-dark); text-decoration: none; padding: 14px;
       border-radius: 50px; font-weight: 600; font-size: 1rem; border: 1px solid var(--wpp);
-      transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
     }
     .btn-buy:hover { background: var(--wpp); border-color: var(--wpp); color: white; }
 
     /* ─── O DIFERENCIAL DA LEUDA ────────────────────────────────────── */
-    #consultoria { padding: 100px 5vw; background: var(--bg-white); }
-    .cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; align-items: center; }
-    .cons-visual { position: relative; }
+    #consultoria { background: var(--bg-white); }
+    .cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto; align-items: center; }
     .cons-img-box {
-      aspect-ratio: 3/4; background: var(--bg-cream);
-      border: 1px solid var(--border-subtle); border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;
+      aspect-ratio: 3/4; background: var(--bg-cream); border: 1px solid var(--border-subtle);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 30px;
     }
-    .cons-img-box h3 { font-size: 2.2rem; color: var(--gold-main); text-align: center; }
-    .cons-texto h2 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
-    .cons-texto p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
+    .cons-img-box h3 { font-size: clamp(1.8rem, 4vw, 2.2rem); color: var(--gold-main); text-align: center; }
+    .cons-texto p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
     .cons-pontos { margin-top: 30px; border-left: 2px solid var(--gold-main); padding-left: 20px; }
     .cons-ponto { margin-bottom: 20px; }
     .cons-ponto h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 600;}
     .cons-ponto p { font-size: 0.95rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
 
     /* ─── DEPOIMENTOS & PROVA SOCIAL ────────────────────────────────── */
-    #depoimentos { padding: 100px 5vw; background: var(--bg-cream); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);}
-    .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    #depoimentos { background: var(--bg-cream); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);}
+    .dep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
     .dep-card {
       background: var(--bg-white); border: 1px solid var(--border-subtle); padding: 40px 30px;
       border-radius: var(--radius); position: relative; transition: var(--transition); box-shadow: var(--shadow-sm);
@@ -191,13 +186,13 @@
     .dep-autor span { display: block; font-size: 0.8rem; color: var(--gold-main); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;}
 
     /* ─── FAQ ───────────────────────────────────────────────────────── */
-    #faq { padding: 100px 5vw; background: var(--bg-white); }
+    #faq { background: var(--bg-white); }
     .faq-container { max-width: 800px; margin: 0 auto; }
-    .faq-item { border-bottom: 1px solid var(--border-subtle); padding: 25px 0; cursor: pointer; }
-    .faq-pergunta { display: flex; justify-content: space-between; align-items: center; font-size: 1.2rem; font-weight: 600; color: var(--text-dark); }
+    .faq-item { border-bottom: 1px solid var(--border-subtle); padding: 20px 0; cursor: pointer; }
+    .faq-pergunta { display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); }
     .faq-pergunta span { color: var(--gold-main); font-size: 1.5rem; transition: var(--transition); }
-    .faq-resposta { max-height: 0; overflow: hidden; transition: var(--transition); color: var(--text-muted); font-size: 1rem; line-height: 1.7; font-weight: 400; }
-    .faq-item.active .faq-resposta { max-height: 200px; margin-top: 15px; }
+    .faq-resposta { max-height: 0; overflow: hidden; transition: var(--transition); color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 400; }
+    .faq-item.active .faq-resposta { max-height: 300px; margin-top: 15px; }
     .faq-item.active .faq-pergunta span { transform: rotate(45deg); }
 
     /* ─── FOOTER ────────────────────────────────────────────────────── */
@@ -209,7 +204,7 @@
 
     /* ─── WHATSAPP FLOAT ────────────────────────────────────────────── */
     .float-wpp {
-      position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+      position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
       background: linear-gradient(135deg, var(--wpp), var(--wpp-dark)); color: white; border-radius: 50%;
       display: flex; align-items: center; justify-content: center; font-size: 2rem;
       box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); text-decoration: none; z-index: 1000;
@@ -227,36 +222,66 @@
     .reveal.active { opacity: 1; transform: translateY(0); }
     .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
 
-    /* ─── RESPONSIVO ────────────────────────────────────────────────── */
+    /* ─── REGRAS DE RESPONSIVIDADE (MOBILE & TABLET) ────────────────── */
     @media (max-width: 992px) {
       .tech-grid, .cons-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
       .tech-features { align-items: center; }
-      .cons-pontos { border-left: none; padding-left: 0; }
-      .cons-img-box { padding: 60px 0; }
-      .dep-grid { grid-template-columns: 1fr; }
+      .cons-pontos { border-left: none; padding-left: 0; text-align: center; }
+      .cons-img-box { padding: 40px 20px; }
     }
+    
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero-title { font-size: 2.5rem; }
-      .hero-actions { flex-direction: column; }
-      .section-title { font-size: 2.5rem; }
+      /* Ajuste de Margens e Paddings para Mobile */
+      section { padding: 60px 5vw; }
+      #hero { padding: 120px 5vw 60px; }
+      
+      /* Menu Mobile (Hambúrguer) */
+      .hamburger { display: block; }
+      .nav-links {
+        position: fixed; top: 0; left: -100%; width: 80%; height: 100vh;
+        background: var(--bg-white); flex-direction: column; align-items: center;
+        justify-content: center; transition: var(--transition); box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { left: 0; }
+      .nav-links li { margin: 15px 0; }
+      .nav-links a { font-size: 1.2rem; }
+
+      /* Botões 100% Largura no Celular */
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary { width: 100%; }
+      
+      /* Ajustes de Fonte Mobile */
+      .tech-text h2, .cons-texto h2 { font-size: 2.2rem; }
+      
+      /* Ajuste Menu Background Escuro Ativo */
+      body.menu-open::after {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5); z-index: 999;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO -->
+  <!-- CABEÇALHO COM MENU RESPONSIVO -->
   <nav id="nav">
     <a href="#hero" class="logo">
       <div class="logo-mark">L</div>
       <span>Leuda<em>Ozonteck</em></span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#tecnologia">A Tecnologia</a></li>
-      <li><a href="#produtos">Produtos</a></li>
-      <li><a href="#consultoria">Consultoria</a></li>
-      <li><a href="#depoimentos">Depoimentos</a></li>
-      <li><a href="#produtos" class="btn-nav">Fazer Pedido</a></li>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#tecnologia" class="nav-item">A Tecnologia</a></li>
+      <li><a href="#produtos" class="nav-item">Produtos</a></li>
+      <li><a href="#consultoria" class="nav-item">Consultoria</a></li>
+      <li><a href="#depoimentos" class="nav-item">Depoimentos</a></li>
+      <li><a href="#produtos" class="btn-nav nav-item">Fazer Pedido</a></li>
     </ul>
   </nav>
 
@@ -467,9 +492,9 @@
     </svg>
   </a>
 
-  <!-- SCRIPT DE ANIMAÇÃO E SCROLL -->
+  <!-- SCRIPTS DE FUNCIONALIDADE -->
   <script>
-    // Muda a cor do Menu ao rolar a página
+    // 1. Muda a cor do Menu ao rolar a página
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -479,7 +504,7 @@
       }
     });
 
-    // Animação de Reveal (Surgir ao rolar)
+    // 2. Animação de Reveal (Surgir ao rolar)
     function reveal() {
       var reveals = document.querySelectorAll(".reveal");
       for (var i = 0; i < reveals.length; i++) {
@@ -492,7 +517,34 @@
       }
     }
     window.addEventListener("scroll", reveal);
-    reveal(); // Chama uma vez para exibir elementos que já estão na tela
+    reveal(); // Chama na inicialização
+
+    // 3. Menu Hambúrguer para Celular
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    // Abre e fecha o menu ao clicar no hambúrguer
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('menu-open'); // Escurece o fundo
+    });
+
+    // Fecha o menu se clicar em algum link
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+
+    // Fecha o menu se clicar fora dele no fundo escuro
+    document.addEventListener('click', function(event) {
+      if(document.body.classList.contains('menu-open') && !navLinks.contains(event.target) && !hamburger.contains(event.target)){
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
   </script>
 </body>
 </html>
