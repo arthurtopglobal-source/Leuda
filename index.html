@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Leuda Ozonteck - Saúde Premium, Revenda Lucrativa e Expansão de Negócios. Escolha o seu caminho." />
-  <title>Leuda Ozonteck • Portal Oficial Premium</title>
+  <meta name="description" content="Leuda Ozonteck - Saúde, Perfumaria e Oportunidade de Negócios. Consuma com desconto, revenda com 100% de lucro ou construa sua equipe." />
+  <title>Leuda Ozonteck • Saúde, Perfumaria e Negócios</title>
 
+  <!-- Fontes Premium -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -22,7 +23,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── DESIGN TOKENS (Paleta Light Premium) ──────────────────────── */
+    /* ─── DESIGN TOKENS (Paleta Dourada e Dark Premium) ────────────── */
     :root {
       --bg-white:   #ffffff;
       --bg-cream:   #fdfbf7;
@@ -35,9 +36,9 @@
       --text-main:  #334155;
       --text-muted: #64748b;
       --radius:     20px;
-      --shadow-sm:  0 4px 20px rgba(15, 23, 42, 0.02);
-      --shadow-md:  0 12px 45px rgba(15, 23, 42, 0.06);
-      --border-subtle: rgba(15, 23, 42, 0.05);
+      --shadow-sm:  0 4px 20px rgba(15, 23, 42, 0.03);
+      --shadow-md:  0 12px 45px rgba(15, 23, 42, 0.08);
+      --border-subtle: rgba(15, 23, 42, 0.06);
       --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -55,9 +56,7 @@
       transition: var(--transition); background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle);
     }
-    #nav.scrolled {
-      box-shadow: var(--shadow-sm); padding: 14px 5vw; background: rgba(255, 255, 255, 0.95);
-    }
+    #nav.scrolled { box-shadow: var(--shadow-sm); padding: 14px 5vw; background: rgba(255, 255, 255, 0.98); }
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-dark); }
     .logo-mark {
       width: 42px; height: 42px; background: linear-gradient(135deg, var(--gold-light), var(--gold-main));
@@ -79,45 +78,72 @@
 
     /* ─── HERO SECTION ──────────────────────────────────────────────── */
     #hero {
-      min-height: 85vh; display: flex; align-items: center; justify-content: center;
+      min-height: 90vh; display: flex; align-items: center; justify-content: center;
       padding: 140px 5vw 60px; text-align: center; position: relative; overflow: hidden;
-      background: radial-gradient(circle at top, #ffffff 0%, var(--bg-cream) 100%);
+      background: radial-gradient(circle at top, var(--bg-white) 0%, var(--bg-cream) 100%);
     }
     .hero-content { position: relative; z-index: 1; max-width: 950px; }
     .hero-title { font-size: clamp(2.6rem, 6vw, 4.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
     .hero-title strong { font-weight: 700; color: var(--gold-main); font-style: italic; }
-    .hero-desc { font-size: 1.25rem; color: var(--text-main); line-height: 1.6; margin-bottom: 35px; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .hero-desc { font-size: 1.25rem; color: var(--text-main); line-height: 1.6; margin-bottom: 35px; font-weight: 400; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-    /* ─── PORTAL DE TRÊS CAMINHOS (MANDATÓRIO) ─────────────────────── */
+    /* ─── 3 CAMINHOS (PORTAL) ───────────────────────────────────────── */
     #caminhos { padding: 40px 5vw 80px; background: var(--bg-white); }
     .caminhos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
     .caminho-card {
       background: var(--bg-cream); border: 1px solid var(--border-subtle); padding: 45px 30px; border-radius: var(--radius);
       transition: var(--transition); text-align: center; display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
     }
-    .caminho-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: rgba(179, 139, 34, 0.3); }
-    .caminho-icon { width: 55px; height: 55px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-main); margin: 0 auto 24px; box-shadow: var(--shadow-sm); }
+    .caminho-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--border-subtle); transition: var(--transition);
+    }
+    .caminho-card.c1::before { background: var(--text-muted); }
+    .caminho-card.c2::before { background: var(--gold-main); }
+    .caminho-card.c3::before { background: var(--text-dark); }
+    
+    .caminho-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: rgba(179, 139, 34, 0.2); }
+    .caminho-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 24px; background: #fff; box-shadow: var(--shadow-sm); }
     .caminho-card h3 { font-size: 1.8rem; margin-bottom: 12px; font-weight: 700; }
     .caminho-card p { font-size: 0.95rem; color: var(--text-main); line-height: 1.6; margin-bottom: 30px; flex-grow: 1; }
-    .btn-caminho {
-      display: block; width: 100%; padding: 14px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem;
-      transition: var(--transition); letter-spacing: 0.5px;
-    }
+    
+    .btn-caminho { display: block; width: 100%; padding: 14px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: var(--transition); letter-spacing: 0.5px; }
     .caminho-card.c1 .btn-caminho { background: transparent; border: 1px solid var(--text-dark); color: var(--text-dark); }
     .caminho-card.c1 .btn-caminho:hover { background: var(--text-dark); color: #fff; }
-    
-    .caminho-card.c2 .btn-caminho { background: var(--gold-main); color: #fff; }
-    .caminho-card.c2 .btn-caminho:hover { background: var(--text-dark); }
-    
-    .caminho-card.c3 .btn-caminho { background: var(--text-dark); color: #fff; }
-    .caminho-card.c3 .btn-caminho:hover { background: var(--gold-main); }
+    .caminho-card.c2 .btn-caminho { background: var(--gold-main); color: #fff; border: 1px solid var(--gold-main);}
+    .caminho-card.c2 .btn-caminho:hover { background: var(--text-dark); border-color: var(--text-dark); }
+    .caminho-card.c3 .btn-caminho { background: var(--text-dark); color: #fff; border: 1px solid var(--text-dark); }
+    .caminho-card.c3 .btn-caminho:hover { background: var(--gold-main); border-color: var(--gold-main); }
 
-    /* ─── PORTFÓLIO DE PRODUTOS PREMIUM ─────────────────────────────────────── */
-    #produtos { padding: 100px 5vw; background: var(--bg-gray); position: relative; }
-    .section-header { text-align: center; margin-bottom: 70px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    /* ─── TECNOLOGIA DE OZÔNIO ───────────────────────── */
+    #tecnologia { padding: 100px 5vw; background: var(--bg-gray); }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
+    .tech-text h2 { font-size: 3.2rem; margin-bottom: 24px; line-height: 1.1; }
+    .tech-text p { font-size: 1.1rem; color: var(--text-main); line-height: 1.8; margin-bottom: 24px; }
+    
+    .compare-box { background: var(--bg-white); border-radius: 16px; border: 1px solid var(--border-subtle); padding: 30px; margin-top: 30px; box-shadow: var(--shadow-sm); }
+    .compare-box h4 { text-align: center; margin-bottom: 20px; font-size: 1.2rem; color: var(--text-dark); }
+    .compare-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.95rem; }
+    .compare-row:last-child { border-bottom: none; }
+    .oz-good { color: var(--wpp-dark); font-weight: 700; display: flex; align-items: center; gap: 8px;}
+    .oz-bad { color: #e11d48; text-decoration: line-through; opacity: 0.7;}
+
+    /* Produto Estrela */
+    .tech-visual {
+      background: var(--text-dark); color: white; border-radius: 30px; padding: 50px 30px; text-align: center; box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+    }
+    .tech-visual::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(179,139,34,0.15) 0%, transparent 60%); z-index: 0;
+    }
+    .tech-visual * { position: relative; z-index: 1; }
+
+    /* ─── CATÁLOGOS ──────────────────────────── */
+    .catalogo-section { padding: 100px 5vw; background: var(--bg-white); position: relative; }
+    .catalogo-section.bg-gray { background: var(--bg-cream); }
+    .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
     .section-title { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; }
-    .section-desc { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+    .section-desc { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
     
     .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
     .prod-card {
@@ -126,62 +152,59 @@
       transition: var(--transition); display: flex; flex-direction: column; position: relative;
       box-shadow: var(--shadow-sm);
     }
-    .prod-card:hover { transform: translateY(-10px); border-color: rgba(179, 139, 34, 0.25); box-shadow: var(--shadow-md); }
+    .prod-card:hover { transform: translateY(-10px); border-color: rgba(179, 139, 34, 0.3); box-shadow: var(--shadow-md); }
     
     .prod-tag {
       position: absolute; top: 20px; right: 20px; background: var(--text-dark); color: #fff;
       font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
       padding: 6px 14px; border-radius: 50px; z-index: 2;
     }
+    .prod-tag.gold { background: var(--gold-main); }
     
-    .prod-img { width: 100%; aspect-ratio: 1; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; padding: 10px; }
-    .prod-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .prod-card:hover .prod-img img { transform: scale(1.06); }
+    /* ESTILO DAS IMAGENS: REMOVIDO EFEITO DE ZOOM PARA NÃO PERDER NITIDEZ */
+    .prod-img { 
+      width: 100%; aspect-ratio: 1; margin-bottom: 25px; display: flex; align-items: center; justify-content: center;
+      background: transparent; border-radius: 14px; padding: 15px; position: relative;
+    }
+    .prod-img img { 
+      width: 100%; height: 100%; object-fit: contain; 
+      filter: drop-shadow(0 15px 15px rgba(0,0,0,0.2));
+      /* Transição de zoom foi removida daqui */
+    }
+    /* A regra que dava zoom na imagem (.prod-card:hover .prod-img img) foi removida propositalmente */
     
-    .prod-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+    .prod-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
     .prod-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+    .prod-info { font-size: 0.8rem; font-weight: 700; color: var(--gold-main); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;}
     
     .btn-buy {
       background: transparent; color: var(--wpp-dark); text-decoration: none; padding: 14px;
       border-radius: 50px; font-weight: 700; font-size: 0.85rem; border: 1px solid var(--wpp);
       transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; letter-spacing: 0.5px;
     }
-    .btn-buy:hover { background: var(--wpp); border-color: var(--wpp); color: white; }
+    .btn-buy:hover { background: var(--wpp); color: white; }
 
-    /* ─── ENTENDA OS SUPORTES DA REDE ────────────────────────────── */
-    #parceria { padding: 100px 5vw; background: var(--bg-white); }
-    .cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
-    .cons-visual { position: relative; }
-    .cons-img-box {
-      aspect-ratio: 3/4; background: linear-gradient(to bottom, var(--bg-cream), #f4eee1);
-      border: 1px solid var(--border-subtle); border-radius: 24px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 40px;
-    }
-    .cons-img-box h3 { font-size: 2.4rem; color: var(--text-dark); text-align: center; line-height: 1.1; }
-    .cons-img-box h3 span { color: var(--gold-main); font-style: italic; font-weight: 400; }
+    /* ─── NÚMEROS DA EMPRESA (AUTORIDADE) ───────────────────────────── */
+    #autoridade { padding: 80px 5vw; background: var(--text-dark); color: white; display: flex; justify-content: center; gap: 8vw; flex-wrap: wrap; text-align: center; position: relative;}
+    .auto-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; margin-bottom: 5px; line-height: 1; color: var(--gold-light); }
+    .auto-item p { font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: #cbd5e1;}
 
-    .cons-texto h2 { font-size: 3.4rem; margin-bottom: 24px; line-height: 1.1; }
-    .cons-texto p { font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 25px; }
-    .cons-pontos { margin-top: 35px; border-left: 3px solid var(--gold-main); padding-left: 25px; }
-    .cons-ponto { margin-bottom: 25px; }
-    .cons-ponto h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 6px; font-weight: 700;}
-    .cons-ponto p { font-size: 1rem; color: var(--text-muted); margin: 0; line-height: 1.6; }
-
-    /* ─── DEPOIMENTOS COMPARTIMENTADOS (OS 3 PÚBLICOS) ───────────────── */
-    #depoimentos { padding: 100px 5vw; background: var(--bg-cream); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);}
+    /* ─── DEPOIMENTOS (OS 3 PÚBLICOS) ───────────────────────────────── */
+    #depoimentos { padding: 100px 5vw; background: var(--bg-white); }
     .dep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
     .dep-card {
-      background: var(--bg-white); border: 1px solid var(--border-subtle); padding: 45px 35px;
-      border-radius: var(--radius); position: relative; transition: var(--transition); box-shadow: var(--shadow-sm);
+      background: var(--bg-gray); border: 1px solid var(--border-subtle); padding: 45px 35px;
+      border-radius: var(--radius); position: relative; transition: var(--transition);
     }
-    .dep-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .dep-aspas { font-family: 'Cormorant Garamond'; font-size: 5rem; color: rgba(179, 139, 34, 0.12); line-height: 0; position: absolute; top: 45px; left: 25px; }
+    .dep-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); background: var(--bg-white); }
+    .dep-aspas { font-family: 'Cormorant Garamond'; font-size: 5rem; color: rgba(179, 139, 34, 0.15); line-height: 0; position: absolute; top: 45px; left: 25px; }
     .dep-stars { color: var(--gold-main); letter-spacing: 2px; margin-bottom: 18px; font-size: 1.1rem; position: relative; z-index: 1;}
-    .dep-texto { font-size: 1.05rem; color: var(--text-main); line-height: 1.7; font-style: italic; margin-bottom: 30px; position: relative; z-index: 1; font-weight: 400;}
+    .dep-texto { font-size: 1.05rem; color: var(--text-main); line-height: 1.7; font-style: italic; margin-bottom: 30px; position: relative; z-index: 1;}
     .dep-autor { font-weight: 700; color: var(--text-dark); font-size: 1rem; }
     .dep-autor span { display: block; font-size: 0.8rem; color: var(--gold-main); font-weight: 700; margin-top: 5px; text-transform: uppercase; letter-spacing: 1.5px;}
 
     /* ─── FAQ ───────────────────────────────────────────────────────── */
-    #faq { padding: 100px 5vw; background: var(--bg-white); }
+    #faq { padding: 100px 5vw; background: var(--bg-cream); }
     .faq-container { max-width: 850px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--border-subtle); padding: 28px 0; cursor: pointer; }
     .faq-pergunta { display: flex; justify-content: space-between; align-items: center; font-size: 1.25rem; font-weight: 700; color: var(--text-dark); gap: 20px; }
@@ -192,8 +215,8 @@
 
     /* ─── FOOTER ────────────────────────────────────────────────────── */
     footer { background: var(--text-dark); padding: 80px 5vw 40px; text-align: center; }
-    .footer-logo { font-family: 'Cormorant Garamond'; font-size: 2.6rem; color: #fff; margin-bottom: 20px; font-weight: 700; }
-    .footer-logo span { color: var(--gold-light); font-style: italic; font-weight: 400; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: #fff; margin-bottom: 20px; font-weight: 700; }
+    .footer-logo span { font-weight: 400; color: var(--gold-light); font-style: italic;}
     .footer-text { color: #94a3b8; font-size: 1.05rem; max-width: 600px; margin: 0 auto 40px; font-weight: 300; line-height: 1.6; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 25px; font-size: 0.85rem; color: #64748b; letter-spacing: 0.5px; }
 
@@ -206,234 +229,367 @@
       transition: var(--transition); animation: pulse-wpp 2.5s infinite;
     }
     .float-wpp:hover { transform: scale(1.1); box-shadow: 0 18px 45px rgba(37, 211, 102, 0.6); }
-    @keyframes pulse-wpp {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-      70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-    }
+    @keyframes pulse-wpp { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-    /* ─── ANIMAÇÕES REVEAL ──────────────────────────────────────────── */
+    /* ─── ANIMAÇÕES ──────────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(35px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
-    .delay-1 { transition-delay: 0.15s; } .delay-2 { transition-delay: 0.3s; }
+    .delay-1 { transition-delay: 0.15s; } .delay-2 { transition-delay: 0.3s; } .delay-3 { transition-delay: 0.45s; }
 
     /* ─── RESPONSIVO ────────────────────────────────────────────────── */
     @media (max-width: 992px) {
-      .tech-grid, .cons-grid { grid-template-columns: 1fr; text-align: center; gap: 50px; }
-      .cons-pontos { border-left: none; padding-left: 0; text-align: left; }
-      .cons-img-box { padding: 60px 20px; }
+      .tech-grid { grid-template-columns: 1fr; gap: 50px; }
       .dep-grid { grid-template-columns: 1fr; }
+      .auto-item { width: 40%; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hero-title { font-size: 2.5rem; }
       .section-title { font-size: 2.5rem; }
+      .auto-item { width: 100%; }
     }
   </style>
 </head>
 <body>
 
+  <!-- CABEÇALHO -->
   <nav id="nav">
     <a href="#hero" class="logo">
       <div class="logo-mark">L</div>
       <span>Leuda<em>Ozonteck</em></span>
     </a>
     <ul class="nav-links">
-      <li><a href="#caminhos">Escolha seu Perfil</a></li>
-      <li><a href="#produtos">Produtos</a></li>
-      <li><a href="#parceria">Por que a Marca?</a></li>
+      <li><a href="#caminhos">O Negócio</a></li>
+      <li><a href="#perfumes">Perfumaria</a></li>
+      <li><a href="#saude">Kits Saúde</a></li>
       <li><a href="#depoimentos">Resultados</a></li>
-      <li><a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Acessei%20seu%20site%20e%20gostaria%20de%20conversar." class="btn-nav" target="_blank">Falar com Leuda</a></li>
+      <li><a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Acessei%20o%20site%20e%20gostaria%20de%20falar%20com%20você." class="btn-nav" target="_blank">Atendimento</a></li>
     </ul>
   </nav>
 
+  <!-- HERO SECTION -->
   <section id="hero">
     <div class="hero-content reveal active">
-      <span class="eyebrow">Portal Oficial de Saúde e Negócios</span>
-      <h1 class="hero-title">Sua Saúde, Seu Lucro ou <strong>Sua Equipe de Sucesso.</strong></h1>
-      <p class="hero-desc">Seja muito bem-vindo ao portal da distribuidora Leuda. Aqui você escolhe se quer consumir suplementos de altíssima qualidade, revender para lucrar 100% ou construir uma rede de revendedores altamente rentável.</p>
+      <span class="eyebrow">Portal Oficial de Distribuição</span>
+      <h1 class="hero-title">A união perfeita entre Saúde Premium e <strong>Liberdade Financeira.</strong></h1>
+      <p class="hero-desc">Bem-vindo à equipe Leuda Ozonteck. Escolha o seu caminho: consuma produtos de excelência com desconto, lucre até 100% revendendo ou construa a sua própria rede de distribuição pelo Brasil.</p>
     </div>
   </section>
 
+  <!-- SEÇÃO PORTAL: OS TRÊS CAMINHOS -->
   <section id="caminhos">
     <div class="caminhos-grid">
       <div class="caminho-card c1 reveal">
-        <div class="caminho-icon">✦</div>
-        <h3>Consumir Premium</h3>
-        <p>Busca o ápice da saúde e imunidade. Quero conhecer as fórmulas avançadas da Ozonteck e fazer o meu pedido de forma rápida para uso próprio.</p>
-        <a href="#produtos" class="btn-caminho">Ver Catálogo de Produtos</a>
+        <div class="caminho-icon">🛒</div>
+        <h3>Consumo Inteligente</h3>
+        <p>Acesse produtos à base de ozônio para a sua saúde e imunidade. Cuidado de ponta para você e sua família, pagando menos direto da fábrica.</p>
+        <a href="#saude" class="btn-caminho">Ver Linha de Saúde</a>
       </div>
 
       <div class="caminho-card c2 reveal delay-1">
-        <div class="caminho-icon">💲</div>
-        <h3>Revender e Lucrar</h3>
-        <p>Quer colocar dinheiro rápido no bolso todos os dias. Quero comprar suplementos direto da fábrica a preço de custo e revender com até 100% de lucro líquido.</p>
-        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Acessei%20o%20site%20e%20quero%20saber%20como%20comprar%20no%20atacado%20para%20revender." class="btn-caminho" target="_blank">Quero Ser Revendedor</a>
+        <div class="caminho-icon" style="color:var(--gold-main);">💰</div>
+        <h3>Revenda Lucrativa</h3>
+        <p>Dinheiro rápido e diário. Compre nossa Perfumaria Fina e Suplementos a preço de custo e coloque <strong>até 100% de lucro líquido</strong> no bolso.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Quero%20saber%20como%20comprar%20no%20atacado%20para%20ter%20100%25%20de%20lucro%20na%20revenda." class="btn-caminho" target="_blank">Quero Ser Revendedor</a>
       </div>
 
       <div class="caminho-card c3 reveal delay-2">
-        <div class="caminho-icon">👑</div>
-        <h3>Expandir Rede (Líder)</h3>
-        <p>Quer construir independência financeira escalável. Quero cadastrar e liderar novos revendedores abaixo de mim, ganhando comissões permanentes sobre a produção da equipe.</p>
-        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Tenho%20perfil%20de%20líder%20e%20quero%20saber%20como%20funciona%20para%20montar%20uma%20equipe%20na%20sua%20rede." class="btn-caminho" target="_blank">Quero Construir Equipe</a>
+        <div class="caminho-icon" style="color:var(--text-dark);">👑</div>
+        <h3>Liderança e Rede</h3>
+        <p>Monte sua equipe de expansão. Indique novos consultores e ganhe comissões e premiações residuais sobre toda a produção da sua rede.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Tenho%20perfil%20empreendedor%20e%20quero%20desenvolver%20equipe%20na%20sua%20rede%20Ozonteck." class="btn-caminho" target="_blank">Quero Construir Equipe</a>
       </div>
     </div>
   </section>
 
-  <section id="produtos">
+  <!-- O DIFERENCIAL: OZÔNIO E TECNOLOGIA -->
+  <section id="tecnologia">
+    <div class="tech-grid">
+      <div class="tech-text reveal">
+        <span class="eyebrow">A Ciência do Resultado</span>
+        <h2>Fórmulas exclusivas baseadas em Ozônio.</h2>
+        <p>A Ozonteck se consolidou no mercado nacional devido à sua eficácia. Nossos produtos promovem regeneração celular profunda, ação antibacteriana e anti-inflamatória real e perceptível no primeiro uso.</p>
+        
+        <div class="compare-box">
+          <h4>Ozonteck vs Mercado Comum</h4>
+          <div class="compare-row">
+            <span class="oz-good">✓ Fórmulas próprias com Ozônio</span>
+            <span class="oz-bad">Fórmulas genéricas</span>
+          </div>
+          <div class="compare-row">
+            <span class="oz-good">✓ Alta Biodisponibilidade Celular</span>
+            <span class="oz-bad">Baixa absorção pelo corpo</span>
+          </div>
+          <div class="compare-row">
+            <span class="oz-good">✓ Certificações e Laudos da Anvisa</span>
+            <span class="oz-bad">Sem regulação oficial</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- O Produto Estrela -->
+      <div class="tech-visual reveal delay-1">
+        <span style="color:var(--gold-light); font-weight:700; font-size:0.9rem; text-transform:uppercase; letter-spacing:2px; display:block; margin-bottom:15px;">Nosso Carro-Chefe</span>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-size:3.8rem; margin-bottom:15px; color:white;">NX CAP OZON</h3>
+        
+        <!-- FOTO DO NX CAP INSERIDA AQUI -->
+        <img src="https://i.imgur.com/jgk6dKY.jpeg" alt="NX CAP OZON" style="width: 100%; max-width: 260px; margin-bottom: 20px; border-radius: 12px; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4));">
+        
+        <p style="color:#cbd5e1; font-size:1.15rem; line-height:1.6; margin-bottom:25px;">O suplemento revolucionário formulado para auxiliar no tratamento de <strong>mais de 150 doenças silenciosas</strong>. Um escudo celular puro.</p>
+        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Quero%20saber%20o%20valor%20do%20NX%20CAP%20OZON." class="btn-nav" style="background:var(--gold-main); color:white; border:none; display:inline-block;" target="_blank">Consultar Valor do NX CAP</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINHA DE PERFUMARIA FINA COM AS IMAGENS OFICIAIS -->
+  <section id="perfumes" class="catalogo-section bg-gray">
     <div class="section-header reveal">
-      <span class="eyebrow">Vitrine Avançada</span>
-      <h2 class="section-title">O Portfólio <em>Ozonteck</em></h2>
-      <p class="section-desc">Fórmulas de alta tecnologia fáceis de vender e extraordinárias para consumir. Clique no botão do produto para comprar ou consultar preço de atacado para o seu lote.</p>
+      <span class="eyebrow">Giro Rápido</span>
+      <h2 class="section-title">Perfumaria <em>Premium 17ml</em></h2>
+      <p class="section-desc">A linha campeã para revendedores. Perfumes pocket inspirados nas maiores grifes do mundo. Alta fixação, embalagem de luxo e preço imbatível.</p>
     </div>
 
     <div class="prod-grid">
+      <!-- Perfume 1: Cinderela -->
       <div class="prod-card reveal">
-        <span class="prod-tag">Alta Rotação</span>
+        <span class="prod-tag gold">Feminino Ouro</span>
         <div class="prod-img">
-          <img src="https://i.imgur.com/TgJNxrE.png" alt="XBOOSTER Ozonteck">
+          <img src="https://i.imgur.com/z5SVgxK.png" alt="Perfume Cinderela Ozonteck">
         </div>
-        <h3 class="prod-title">XBOOSTER</h3>
-        <p class="prod-desc">Arginina, Taurina e Cafeína purificada. Foco cirúrgico e energia limpa que erradicam a fadiga diária. Público massivo e recorrente.</p>
-        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20informações%20sobre%20o%20XBOOSTER%20(Preço%20final%20ou%20Atacado)." class="btn-buy" target="_blank">
-          Fazer Pedido / Preço de Revenda →
-        </a>
+        <h3 class="prod-title">CINDERELA</h3>
+        <p class="prod-info">Inspiração: Good Girl</p>
+        <p class="prod-desc">Oriental Floral magnético. O queridinho das clientes que buscam sofisticação e presença marcante.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20quero%20fazer%20pedido%20do%20perfume%20Cinderela." class="btn-buy" target="_blank">Comprar / Atacado →</a>
       </div>
 
+      <!-- Perfume 2: Vida Bella -->
       <div class="prod-card reveal delay-1">
-        <span class="prod-tag">Estética Premium</span>
+        <span class="prod-tag gold">Feminino Clássico</span>
         <div class="prod-img">
-          <img src="https://i.imgur.com/8PCCrCj.png" alt="NXCAP OZON Ozonteck">
+          <img src="https://i.imgur.com/JMPTdAu.png" alt="Perfume Vida Bella Ozonteck">
         </div>
-        <h3 class="prod-title">NXCAP OZON</h3>
-        <p class="prod-desc">Blend de óleos nobres com alta dose de Vitamina E. Poderoso escudo celular focado na longevidade e na beleza de dentro para fora.</p>
-        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20informações%20sobre%20o%20NXCAP%20OZON%20(Preço%20final%20ou%20Atacado)." class="btn-buy" target="_blank">
-          Fazer Pedido / Preço de Revenda →
-        </a>
+        <h3 class="prod-title">VIDA BELLA</h3>
+        <p class="prod-info">Inspiração: La Vie Est Belle</p>
+        <p class="prod-desc">Alegria em forma de fragrância. Floral Frutal Gourmand absoluto em vendas no mundo inteiro.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20quero%20fazer%20pedido%20do%20perfume%20Vida%20Bella." class="btn-buy" target="_blank">Comprar / Atacado →</a>
       </div>
 
+      <!-- Perfume 3: VIP Girl -->
       <div class="prod-card reveal delay-2">
-        <span class="prod-tag">Uso Diário</span>
+        <span class="prod-tag gold">Feminino Elegante</span>
         <div class="prod-img">
-          <img src="https://i.imgur.com/ja8y2Pc.png" alt="ÔMEGA 3 Ozonteck">
+          <img src="https://i.imgur.com/1waR7Wn.png" alt="Perfume Vip Girl Ozonteck">
         </div>
-        <h3 class="prod-title">ÔMEGA 3 PREMIUM</h3>
-        <p class="prod-desc">Óleo de peixe concentrado, livre de metais pesados. Rico em EPA e DHA, indispensável para o coração, cognição e controle lipídico.</p>
-        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20informações%20sobre%20o%20OMEGA%203%20(Preço%20final%20ou%20Atacado)." class="btn-buy" target="_blank">
-          Fazer Pedido / Preço de Revenda →
-        </a>
+        <h3 class="prod-title">VIP GIRL VIP</h3>
+        <p class="prod-info">Inspiração: 212 VIP Rosé</p>
+        <p class="prod-desc">Autêntica e marcante. Fragrância Floral Frutal que é sucesso absoluto entre o público jovem e adulto.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20quero%20fazer%20pedido%20do%20perfume%20Vip%20Girl." class="btn-buy" target="_blank">Comprar / Atacado →</a>
       </div>
 
-      <div class="prod-card reveal delay-3">
-        <span class="prod-tag">Recompra Certa</span>
+      <!-- Perfume 4: Presidente -->
+      <div class="prod-card reveal">
+        <span class="prod-tag">Masculino Ouro</span>
         <div class="prod-img">
-          <img src="https://i.imgur.com/U48IpFh.png" alt="TRI MAGNÉSIO Ozonteck">
+          <img src="https://i.imgur.com/fUZquuz.png" alt="Perfume Presidente Ozonteck">
         </div>
-        <h3 class="prod-title">TRI MAGNÉSIO</h3>
-        <p class="prod-desc">Sinergia analgésica de 3 tipos de Magnésio combinados ao poder anti-inflamatório da Cúrcuma pura. Alívio de dores corporais e melhora do sono.</p>
-        <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Gostaria%20de%20informações%20sobre%20o%20TRI%20MAGNESIO%20(Preço%20final%20ou%20Atacado)." class="btn-buy" target="_blank">
-          Fazer Pedido / Preço de Revenda →
-        </a>
+        <h3 class="prod-title">PRESIDENTE</h3>
+        <p class="prod-info">Inspiração: One Million</p>
+        <p class="prod-desc">O perfume do líder. Amadeirado especiado que projeta poder e status. Venda certa para o público exigente.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20quero%20fazer%20pedido%20do%20perfume%20Presidente." class="btn-buy" target="_blank">Comprar / Atacado →</a>
+      </div>
+
+      <!-- Perfume 5: Soul -->
+      <div class="prod-card reveal delay-1">
+        <span class="prod-tag">Masculino Intenso</span>
+        <div class="prod-img">
+          <img src="https://i.imgur.com/ZnmUYuU.png" alt="Perfume Soul Ozonteck">
+        </div>
+        <h3 class="prod-title">SOUL</h3>
+        <p class="prod-info">Inspiração: Sauvage Dior</p>
+        <p class="prod-desc">Fragrância selvagem e elegante. O Aromático Fougère que é um verdadeiro ímã de elogios.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20quero%20fazer%20pedido%20do%20perfume%20Soul." class="btn-buy" target="_blank">Comprar / Atacado →</a>
+      </div>
+
+      <!-- Perfume 6: 303 Men -->
+      <div class="prod-card reveal delay-2">
+        <span class="prod-tag">Masculino Clássico</span>
+        <div class="prod-img">
+          <img src="https://i.imgur.com/o6rV3Ca.png" alt="Perfume 303 Men Ozonteck">
+        </div>
+        <h3 class="prod-title">303 MEN</h3>
+        <p class="prod-info">Inspiração: 212 Men NYC</p>
+        <p class="prod-desc">Amadeirado frutal atemporal e de extremo bom gosto. Uma escolha segura para presentear e de rápida aceitação.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20quero%20fazer%20pedido%20do%20perfume%20303%20Men." class="btn-buy" target="_blank">Comprar / Atacado →</a>
       </div>
     </div>
   </section>
 
-  <section id="parceria">
-    <div class="cons-grid">
-      <div class="cons-visual reveal">
-        <div class="cons-img-box">
-          <h3>Leuda Ozonteck<br><span>Parceria Oficial</span></h3>
+  <!-- OS 6 KITS DE SAÚDE MAIS VENDIDOS COM IMAGENS REAIS -->
+  <section id="saude" class="catalogo-section">
+    <div class="section-header reveal">
+      <span class="eyebrow">Soluções Completas</span>
+      <h2 class="section-title">Os Top 6 <em>Kits de Saúde</em></h2>
+      <p class="section-desc">A fórmula do sucesso: vender soluções. Nossos combos exclusivos tratam a saúde de forma integrada, gerando fidelização e alta lucratividade em equipe.</p>
+    </div>
+
+    <div class="prod-grid">
+      <!-- Kit 1: Controle de Peso -->
+      <div class="prod-card reveal">
+        <span class="prod-tag">Top 1 de Vendas</span>
+        <div class="prod-img contain">
+          <img src="https://i.imgur.com/SFydFK9.png" alt="Kit Controle de Peso Ozonteck">
         </div>
+        <h3 class="prod-title">Controle de Peso</h3>
+        <p class="prod-info">Xbooster + Bory Slim + Gel Redutor</p>
+        <p class="prod-desc">Ajuda a inibir o acúmulo de gordura corporal, acelera o metabolismo e auxilia diretamente na perda de peso com a tecnologia ozonizada.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20gostaria%20de%20saber%20o%20valor%20do%20Kit%20Controle%20de%20Peso." class="btn-buy" target="_blank">Consultar Kit →</a>
       </div>
-      <div class="cons-texto reveal delay-1">
-        <span class="eyebrow">Por que fazer parte deste movimento?</span>
-        <h2>Sua saúde blindada ou seu bolso cheio. De verdade.</h2>
-        <p>A Ozonteck se consolidou no mercado porque resolve as maiores dores das pessoas: a busca por vitalidade física e a necessidade urgente de uma renda extra segura, justa e meritocrática.</p>
-        
-        <div class="cons-pontos">
-          <div class="cons-ponto">
-            <h4>Fórmulas Originais e Lacradas</h4>
-            <p>Seja para o seu consumo ou de seus clientes finais, os produtos possuem laudos de pureza, autorização rigorosa da Anvisa e resultados práticos rápidos.</p>
-          </div>
-          <div class="cons-ponto">
-            <h4>Lucratividade Agressiva no Varejo</h4>
-            <p>Sem intermediários complexos. Você compra direto da fábrica através da minha rede e coloca margens brutas espetaculares na revenda direta pelo WhatsApp.</p>
-          </div>
-          <div class="cons-ponto">
-            <h4>Comissionamento em Rede Eficiente</h4>
-            <p>Construa seu time de distribuidores e ganhe bônus residuais permanentes sobre o volume de pedidos efetuados por toda a sua organização de vendas.</p>
-          </div>
+
+      <!-- Kit 2: Saúde Mental -->
+      <div class="prod-card reveal delay-1">
+        <span class="prod-tag">Foco & Sono</span>
+        <div class="prod-img contain">
+          <img src="https://i.imgur.com/MfzaMnN.png" alt="Kit Saúde Mental Ozonteck">
         </div>
+        <h3 class="prod-title">Saúde Mental e Foco</h3>
+        <p class="prod-info">Dream Bliss + Xbooster + Magnésio + Cobalactin</p>
+        <p class="prod-desc">Melhora a memória, disposição, concentração e o humor. Essencial para o funcionamento geral do sistema nervoso e qualidade de vida.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20gostaria%20de%20saber%20o%20valor%20do%20Kit%20Saúde%20Mental." class="btn-buy" target="_blank">Consultar Kit →</a>
+      </div>
+
+      <!-- Kit 3: Mobilidade -->
+      <div class="prod-card reveal delay-2">
+        <span class="prod-tag">Fim das Dores</span>
+        <div class="prod-img contain">
+          <img src="https://i.imgur.com/cWpAEzm.png" alt="Kit Mobilidade Ozonteck">
+        </div>
+        <h3 class="prod-title">Mobilidade (Dores)</h3>
+        <p class="prod-info">Virtuous Caps + Vitamina K2 + NX Cap</p>
+        <p class="prod-desc">Favorece a tonificação muscular, regeneração de cartilagens, fortalece os ossos e alivia a rigidez e as dores intensas nas articulações.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20gostaria%20de%20saber%20o%20valor%20do%20Kit%20Mobilidade." class="btn-buy" target="_blank">Consultar Kit →</a>
+      </div>
+
+      <!-- Kit 4: Saúde da Mulher -->
+      <div class="prod-card reveal">
+        <span class="prod-tag">Público Feminino</span>
+        <div class="prod-img contain">
+          <img src="https://i.imgur.com/swaWGVb.png" alt="Kit Saúde da Mulher Ozonteck">
+        </div>
+        <h3 class="prod-title">Saúde da Mulher</h3>
+        <p class="prod-info">Virtuous Caps + Vita Ozon Plus + NX Cap</p>
+        <p class="prod-desc">Combate mudanças de humor, descalcificação óssea, ondas de calor da menopausa e pele ressecada de forma 100% natural.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20gostaria%20de%20saber%20o%20valor%20do%20Kit%20Saúde%20da%20Mulher." class="btn-buy" target="_blank">Consultar Kit →</a>
+      </div>
+
+      <!-- Kit 5: Desempenho Físico -->
+      <div class="prod-card reveal delay-1">
+        <span class="prod-tag">Para Atletas</span>
+        <div class="prod-img contain">
+          <img src="https://i.imgur.com/xq5bHOR.png" alt="Kit Desempenho Físico Ozonteck">
+        </div>
+        <h3 class="prod-title">Desempenho Esportivo</h3>
+        <p class="prod-info">Xbooster + Virtuous Caps + Tri-Magnésio</p>
+        <p class="prod-desc">Fornece energia prolongada, previne desidratação, ajuda na recuperação muscular pós-treino e no metabolismo das gorduras.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20gostaria%20de%20saber%20o%20valor%20do%20Kit%20Desempenho%20Esportivo." class="btn-buy" target="_blank">Consultar Kit →</a>
+      </div>
+
+      <!-- Kit 6: Saúde Digestiva -->
+      <div class="prod-card reveal delay-2">
+        <span class="prod-tag">Detox e Imunidade</span>
+        <div class="prod-img contain">
+          <img src="https://i.imgur.com/sOrGjuS.png" alt="Kit Saúde Digestiva Ozonteck">
+        </div>
+        <h3 class="prod-title">Saúde Digestiva</h3>
+        <p class="prod-info">Virtuous Caps + NX Cap + Ômega 3 + OX</p>
+        <p class="prod-desc">Melhora a digestão, acaba com azia e refluxo, e mantém a microbiota intestinal saudável, servindo como base da sua imunidade celular.</p>
+        <a href="https://wa.me/5598985699077?text=Leuda,%20gostaria%20de%20saber%20o%20valor%20do%20Kit%20Saúde%20Digestiva." class="btn-buy" target="_blank">Consultar Kit →</a>
       </div>
     </div>
   </section>
 
+  <!-- NÚMEROS DA EMPRESA (AUTORIDADE DA REDE) -->
+  <section id="autoridade">
+    <div class="auto-item reveal">
+      <h4>+300 Mil</h4>
+      <p>Afiliados no Brasil</p>
+    </div>
+    <div class="auto-item reveal delay-1">
+      <h4>100%</h4>
+      <p>De Lucro na Revenda</p>
+    </div>
+    <div class="auto-item reveal delay-2">
+      <h4>100%</h4>
+      <p>Nacional c/ Fábrica Própria</p>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (OS 3 PÚBLICOS) -->
   <section id="depoimentos">
     <div class="section-header reveal" style="margin-bottom:50px;">
-      <span class="eyebrow">Resultados Comprovados</span>
-      <h2 class="section-title">Histórias de <em>Sucesso</em></h2>
+      <span class="eyebrow">A Voz de Quem Vive a Ozonteck</span>
+      <h2 class="section-title">Nossas <em>Conquistas</em></h2>
     </div>
     <div class="dep-grid">
       <div class="dep-card reveal">
         <span class="dep-aspas">"</span>
         <div class="dep-stars">★★★★★</div>
-        <p class="dep-texto">Eu sofria com dores crônicas na coluna. Comprei o Tri Magnésio diretamente com a Leuda para meu consumo. O resultado foi incrível, minhas dores sumiram e durmo super bem.</p>
-        <div class="dep-autor">Cláudia M. <span>Cliente Final Exigente</span></div>
+        <p class="dep-texto">Eu tinha dores articulares severas. Comprei o Kit de Mobilidade e o NX Cap Ozon mudou minha vida. A eficácia do ozônio é real, hoje consigo subir escadas sem dor.</p>
+        <div class="dep-autor">Cláudia M. <span>Consumidora Fiel</span></div>
       </div>
       <div class="dep-card reveal delay-1">
         <span class="dep-aspas">"</span>
         <div class="dep-stars">★★★★★</div>
-        <p class="dep-texto">Posto as fotos dos suplementos nos meus status do WhatsApp e os pedidos entram sozinhos. Comprar direto de fábrica me dá 100% de lucro. O dinheiro extra entra rápido todo dia.</p>
+        <p class="dep-texto">Vender a linha de perfumes de 17ml é muito fácil! Eles cabem na bolsa, a fixação é idêntica às marcas caras e meu lucro é de 100%. Faço dinheiro todo santo dia.</p>
         <div class="dep-autor">Ricardo V. <span>Revendedor Autônomo</span></div>
       </div>
       <div class="dep-card reveal delay-2">
         <span class="dep-aspas">"</span>
         <div class="dep-stars">★★★★★</div>
-        <p class="dep-texto">Entrei na rede da Leuda e foquei em trazer novos revendedores. Hoje tenho uma equipe pequena vendendo e minhas comissões residuais da fábrica pagam minhas contas fixas todo mês.</p>
-        <div class="dep-autor">Sônia A. <span>Líder de Equipe</span></div>
+        <p class="dep-texto">Entrei focado em formar rede. O suporte da empresa e o plano de carreira são incríveis. Hoje minha equipe movimenta os Kits de Saúde pelo país todo e a comissão é garantida.</p>
+        <div class="dep-autor">Sônia A. <span>Líder de Expansão</span></div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq">
     <div class="section-header reveal" style="margin-bottom:40px;">
-      <span class="eyebrow">Dúvidas Frequentes</span>
-      <h2 class="section-title">Respostas <em>Claras</em></h2>
+      <span class="eyebrow">Transparência Total</span>
+      <h2 class="section-title">Perguntas <em>Frequentes</em></h2>
     </div>
     <div class="faq-container reveal delay-1">
       <div class="faq-item" onclick="this.classList.toggle('active')">
-        <div class="faq-pergunta">Quero apenas comprar para uso próprio. Como faço? <span>+</span></div>
-        <div class="faq-resposta">É muito simples! Basta escolher o produto desejado em nossa vitrine e clicar no botão correspondente. Você falará diretamente comigo no WhatsApp, onde farei o envio rápido e seguro para o seu endereço com preço cheio de varejo.</div>
+        <div class="faq-pergunta">Os produtos possuem liberação da Anvisa? <span>+</span></div>
+        <div class="faq-resposta">Absolutamente! Todos os produtos, suplementos e cosméticos da Ozonteck são rigorosamente avaliados, notificados e produzidos de acordo com as exigências da Anvisa.</div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('active')">
         <div class="faq-pergunta">Como funciona o lucro de 100% na revenda? <span>+</span></div>
-        <div class="faq-resposta">Ao se cadastrar na minha rede de distribuidores, você ganha acesso exclusivo ao Escritório Virtual da fábrica. Lá, você adquire os produtos com 50% de desconto (preço de custo) e revende pelo preço sugerido de tabela, embolsando 100% de lucro bruto na hora.</div>
+        <div class="faq-resposta">Ao se afiliar à rede, você compra os produtos a preço de atacado (desconto de 50% direto da fábrica). Ao repassar para o cliente pelo preço de tabela, você dobra o seu investimento de forma limpa.</div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('active')">
-        <div class="faq-pergunta">Como ganho dinheiro montando uma equipe de vendas? <span>+</span></div>
-        <div class="faq-resposta">Você pode indicar e cadastrar amigos, familiares ou vendedores profissionais para revenderem abaixo de você. Toda vez que essas pessoas fizerem um pedido de reposição de estoque direto da fábrica, o sistema calcula uma comissão em dinheiro fixada para você por ter expandido o mercado da marca.</div>
-      </div>
-      <div class="faq-item" onclick="this.classList.toggle('active')">
-        <div class="faq-pergunta">Os produtos possuem validação legal e científica? <span>+</span></div>
-        <div class="faq-resposta">Com certeza. O Grupo Ozonteck trabalha dentro das maiores exigências do mercado nacional. Todos os suplementos são notificados e registrados conforme as normas da Anvisa, assegurando procedência, pureza e eficácia para os clientes.</div>
+        <div class="faq-pergunta">É obrigatório montar equipe para lucrar? <span>+</span></div>
+        <div class="faq-resposta">Não! Se quiser apenas revender a perfumaria e os kits, você terá lucros altíssimos. Montar equipe (Marketing de Rede) é uma opção maravilhosa para quem deseja ganhar renda passiva através do crescimento de novos revendedores.</div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Leuda<span>Ozonteck</span></div>
-    <p class="footer-text">Consultoria e Expansão Comercial Oficial. Proporcionando alta performance de saúde para consumidores e alavancagem financeira para parceiros de negócios.</p>
+    <p class="footer-text">Consultoria Especializada e Expansão de Negócios da Marca que mais cresce no Brasil. Transforme a sua saúde e conquiste sua liberdade financeira.</p>
     <div class="footer-bottom">
-      &copy; 2026 Leuda Ozonteck • Gestão de Clientes e Redes Premium. Todos os direitos reservados.
+      &copy; 2026 Leuda Ozonteck • Todos os direitos reservados.
     </div>
   </footer>
 
-  <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Acessei%20seu%20site%20e%20gostaria%20de%20saber%20mais." class="float-wpp" target="_blank" aria-label="Falar com a Leuda">
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5598985699077?text=Olá%20Leuda!%20Acessei%20seu%20site%20e%20gostaria%20de%20falar%20com%20você." class="float-wpp" target="_blank" aria-label="Atendimento">
     <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
     </svg>
   </a>
 
+  <!-- SCRIPT DE ANIMAÇÃO -->
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
